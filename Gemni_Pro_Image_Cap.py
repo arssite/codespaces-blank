@@ -4,7 +4,10 @@ import pathlib
 import textwrap
 from PIL import Image
 import google.generativeai as genai
-genai.configure(api_key='AIzaSyCSw4QYFCuQPLefm8eklclNzw6IpkUm2IA')
+#genai.configure(api_key='AIzaSyCSw4QYFCuQPLefm8eklclNzw6IpkUm2IA')
+os.environ['API_KEY'] = st.secrets['API_KEY']
+#os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=os.environ['API_KEY'])
 
 ## Function to load OpenAI model and get respones
 def get_gemini_response(input,image):
